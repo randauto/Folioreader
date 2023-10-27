@@ -5,7 +5,6 @@ apply plugin: 'kotlin-android'
 android {
     useLibrary 'org.apache.http.legacy'
     compileSdkVersion 33
-
     defaultConfig {
         minSdkVersion 24
         targetSdkVersion 33
@@ -81,4 +80,10 @@ dependencies {
 
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    implementation "org.readium.kotlin-toolkit:readium-shared:$readium_version"
+    implementation "org.readium.kotlin-toolkit:readium-streamer:$readium_version"
+    implementation "org.readium.kotlin-toolkit:readium-navigator:$readium_version"
+    implementation "org.readium.kotlin-toolkit:readium-opds:$readium_version"
+    implementation "org.readium.kotlin-toolkit:readium-lcp:$readium_version"
 }

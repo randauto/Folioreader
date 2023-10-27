@@ -18,3 +18,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "FolioReader-Android"
 include ':folioreader',':sample'
+// Provide the path to the Git submodule.
+//includeBuild 'kotlin-toolkit'
