@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['res']
+        }
+        test {
+            java.srcDirs = ['src/test/java']
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    lintOptions {
+        abortOnError false
+        lintConfig file("lint.xml")
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "androidx.recyclerview:recyclerview:1.3.2"
+    implementation "com.google.android.material:material:1.10.0"
+    testImplementation 'junit:junit:4.12'
+
+    implementation 'org.slf4j:slf4j-android:1.7.25'
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation "com.fasterxml.jackson.core:jackson-core:2.9.7"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.7"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.9.7"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7"
+    implementation "com.google.code.gson:gson:2.8.5"
+
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
+    implementation "com.squareup.retrofit2:converter-jackson:2.5.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+
+    // R2 modules
+
+
+    // Only ReflectionUtils in Spring framework is used
+    implementation 'org.springframework:spring-core:4.3.19.RELEASE'
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+}
